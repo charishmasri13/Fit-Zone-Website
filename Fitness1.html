@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FitZone Gym</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+      background-image: url("fitnessimage.jpg"); 
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    header {
+      background-color: #1e90ff;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    nav ul li a.active {
+      border-bottom: 2px solid yellow;
+    }
+
+    nav ul li a:hover {
+      color: #ffdd57;
+    }
+
+    section {
+      background-color: white;
+      margin: 20px auto;
+      padding: 30px 25px;
+      max-width: 800px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      color: #222;
+    }
+
+    #registration {
+      display: none;
+    }
+
+    #registration .form-container {
+      background: rgba(255, 255, 255, 0.95);
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    #registration h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #registration label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+
+    #registration input,
+    #registration select,
+    #registration textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+
+    #registration button {
+      width: 100%;
+      padding: 12px;
+      background-color: #1e90ff;
+      color: white;
+      border: none;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #registration button:hover {
+      background-color: #005cbf;
+    }
+
+    .footer {
+      background-color: #1e90ff;
+      color: white;
+      padding: 40px 20px;
+      margin-top: 40px;
+    }
+
+    .footer__container {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1000px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer__col {
+      flex: 1 1 30%;
+      min-width: 250px;
+    }
+
+    .footer__col h4 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+      color: black;
+    }
+
+    .footer__links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer__links li {
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    .footer__links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    .footer__links a:hover {
+      color: #ffdd57;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px 10px;
+      background-color: #155a9c;
+      font-size: 0.9rem;
+      color: white;
+    }
+
+    /* Scroll to top button */
+    #topBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: none;
+      padding: 10px 15px;
+      font-size: 16px;
+      border: none;
+      background: #1e90ff;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #topBtn:hover {
+      background: #005cbf;
+    }
+
+    @media (max-width: 768px) {
+      .footer__container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer__col {
+        flex: 1 1 100%;
+        max-width: 400px;
+        margin-bottom: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>FitZone Gym</h1>
+    <nav>
+      <ul>
+        <li><a id="nav-about" onclick="scrollToSection('about')">About</a></li>
+        <li><a id="nav-services" onclick="scrollToSection('services')">Services</a></li>
+        <li><a id="nav-contact" onclick="scrollToSection('contact')">Contact</a></li>
+        <li><a id="nav-registration" onclick="showRegistration()">Registration</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>FitZone Gym is more than just a fitness center — it’s a community built for health, strength, and personal growth.</p>
+    <ul>
+      <li>Established in 2010 with world-class equipment.</li>
+      <li>Certified trainers with expertise in weight training, yoga, and martial arts.</li>
+      <li>Special fitness programs for beginners, kids, and senior citizens.</li>
+      <li>Monthly workshops on nutrition, mental wellness, and lifestyle coaching.</li>
+      <li>Friendly and motivating atmosphere to keep you on track with your goals.</li>
+    </ul>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <ul>
+      <li><b>01 Fitness Training</b> Tailored programs to build strength and achieve goals.</li>
+      <li><b>02 Yoga</b> Improve flexibility and reduce stress.</li>
+      <li><b>03 Gymnastics</b> Boost coordination and core strength.</li>
+      <li><b>04 Karate</b> Build confidence and discipline.</li>
+      <li><b>05 Zumba</b> Dance your way to fitness with high-energy classes.</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: contact@fitzonegym.com</p>
+    <p>Phone: +91-9876543210</p>
+    <p>Address: 123 Fitness Street, Vadlamudi, India</p>
+    <p><a href="https://goo.gl/maps/" target="_blank">📍 View on Google Maps</a></p>
+    <p>Follow us: 
+      <a href="#">Facebook</a> | 
+      <a href="#">Instagram</a> | 
+      <a href="#">Twitter</a>
+    </p>
+  </section>
+
+  <section id="registration">
+    <div class="form-container">
+      <h2>Fitness Registration Form</h2>
+      <form action="#" method="POST">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required />
+
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender" required>
+          <option value="">--Select--</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label for="goal">Fitness Goal</label>
+        <textarea id="goal" name="goal" rows="3" placeholder="e.g. weight loss, muscle gain" required></textarea>
+
+        <label for="time">Preferred Training Time</label>
+        <select id="time" name="time" required>
+          <option value="">--Select--</option>
+          <option value="morning">Morning</option>
+          <option value="afternoon">Afternoon</option>
+          <option value="evening">Evening</option>
+        </select>
+
+        <button type="submit">Register Now</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    <div class="footer__container">
+      <div class="footer__col">
+        <h4><b>Contact Info</b></h4>
+        <ul class="footer__links">
+          <li><a href="#"><span>📞</span> +91 0987654321</a></li>
+          <li><a href="#"><span>📍</span> Vadlamidi, India</a></li>
+          <li><a href="#"><span>✉️</span> info@fitzonegym.com</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4><b>Quick Links</b></h4>
+        <ul class="footer__links">
+          <li><a onclick="scrollToSection('about')">About</a></li>
+          <li><a onclick="scrollToSection('services')">Services</a></li>
+          <li><a onclick="scrollToSection('registration')">Register</a></li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">Membership</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4><b>Gym Hours</b></h4>
+        <ul class="footer__links">
+          <li>Mon - Sat: 5am - 10pm</li>
+          <li>Sunday: 5am - 1pm</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 FitZone Gym. All rights reserved.</p>
+    <p id="datetime"></p>
+  </footer>
+
+  <button id="topBtn" onclick="scrollToTop()">⬆ Top</button>
+
+  <!-- JavaScript -->
+  <script>
+    // Show registration
+    function showRegistration() {
+      const section = document.getElementById('registration');
+      section.style.display = 'block';
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Smooth scroll
+    function scrollToSection(id) {
+      const sec = document.getElementById(id);
+      if (sec) sec.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Form submission
+    document.querySelector('#registration form').addEventListener('submit', function(event) {
+      event.preventDefault(); 
+      alert("Your registration is successful!");
+      document.getElementById('registration').style.display = 'none';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Live Date & Time
+    function updateDateTime() {
+      const now = new Date();
+      document.getElementById("datetime").textContent = now.toLocaleString();
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+
+    // Welcome Popup (only first time)
+    window.onload = function() {
+      if (!localStorage.getItem("welcomeShown")) {
+        alert("🎉 Welcome to FitZone Gym! Stay healthy & strong!");
+        localStorage.setItem("welcomeShown", "true");
+      }
+    };
+
+    // Scroll to top button
+    const topBtn = document.getElementById("topBtn");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none";
+      }
+      highlightNav();
+    };
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Highlight current section in nav
+    function highlightNav() {
+      const sections = ["about","services","contact","registration"];
+      sections.forEach(id => {
+        const sec = document.getElementById(id);
+        const nav = document.getElementById("nav-"+id);
+        if (sec && nav) {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top <= 150 && rect.bottom >= 150) {
+            nav.classList.add("active");
+          } else {
+            nav.classList.remove("active");
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
